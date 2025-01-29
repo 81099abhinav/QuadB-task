@@ -19,28 +19,3 @@ A Rust-based token wallet for the Internet Computer Protocol (ICP) blockchain, s
 - **Local ICP Testnet**: Configure a local replica for deployment.
   ```bash
   dfx start --background
-use ic_cdk_macros::{init, query, update};
-use icrc_ledger_types::{Account, Tokens};
-
-#[derive(Default)]
-struct Wallet {
-    balances: std::collections::HashMap<Account, Tokens>,
-}
-
-#[init]
-fn init() {
-    // Initialize the wallet (e.g., set admin)
-}
-
-#[update]
-async fn transfer(to: Account, amount: Tokens) -> Result<(), String> {
-    // Ensure sender is authorized
-    // Deduct tokens from sender, add to receiver
-    Ok(())
-}
-
-#[query]
-fn get_balance(account: Account) -> Tokens {
-    // Return balance of the given account
-    Tokens::from_e8s(0)
-}
